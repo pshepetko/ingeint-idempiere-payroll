@@ -227,7 +227,7 @@ public class MHRProcess extends X_HR_Process implements DocAction {
 		if (m_processMsg != null) {
 			return DocAction.STATUS_Invalid;
 		}
-
+				
 		// Std Period open?
 		MHRPeriod period = MHRPeriod.get(getCtx(), getHR_Period_ID());
 		MPeriod.testPeriodOpen(getCtx(),
@@ -623,6 +623,9 @@ public class MHRProcess extends X_HR_Process implements DocAction {
 		Object result = null;
 		m_description = null;
 		String errorMsg = "";
+		
+		String contract = getHR_Payroll().getHR_Contract().getValue();
+		
 		try {
 			String text = "";
 			if (rulee.getScript() != null) {
