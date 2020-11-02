@@ -221,7 +221,13 @@ public class MHRProcess extends X_HR_Process implements DocAction {
 	 */
 	public String prepareIt() {
 		log.info("prepareIt - " + toString());
-
+		
+		X_HR_Contract contract = new X_HR_Contract(getCtx(), 1000012, get_TrxName());
+		
+		String value = contract.getValue();
+		
+		String test = getHR_Payroll().getHR_Contract().getValue();
+		
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this,
 				ModelValidator.TIMING_BEFORE_PREPARE);
 		if (m_processMsg != null) {
@@ -265,6 +271,7 @@ public class MHRProcess extends X_HR_Process implements DocAction {
 	 * @return new status (Complete, In Progress, Invalid, Waiting ..)
 	 */
 	public String completeIt() {
+		
 		// Re-Check
 		if (!m_justPrepared) {
 			String status = prepareIt();
