@@ -16,5 +16,7 @@ public class ProcessFactory extends CustomProcessFactory{
 	protected void initialize() {
 		registerProcess(com.ingeint.process.RecalculateLoan.class);
 		registerProcess(com.ingeint.process.PaymentSelection.class);
+		registerProcess(org.eevolution.process.HRCreatePeriods.class);
+		registerProcess(org.eevolution.process.PayrollViaEMail.class);
 	}
 }
